@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Smart Food Analyzer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-utensils"></i>
+                <span>Smart Food Analyzer</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="dashboard.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="dashboard.html#saved"><i class="fas fa-bookmark"></i> Saved Recipes</a>
+                <span id="authLinks" style="display: none;">
+                    <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="signup.html" class="nav-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </span>
+                <span id="userMenu">
+                    <span class="nav-username" id="navUsername"></span>
+                    <a href="#" onclick="logout(); return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <h1 class="dashboard-title">
+                <i class="fas fa-chart-line"></i> Your Dashboard
+            </h1>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: var(--gradient-1);">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Today's Calories</div>
+                        <div class="stat-value" id="todayCalories">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: var(--gradient-2);">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Saved Recipes</div>
+                        <div class="stat-value" id="savedCount">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: var(--gradient-3);">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Meals Logged</div>
+                        <div class="stat-value" id="mealsCount">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: var(--gradient-4);">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Health Score</div>
+                        <div class="stat-value" id="healthScore">85</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saved Recipes Section -->
+            <div id="saved" class="dashboard-section-content">
+                <h2 class="section-title">
+                    <i class="fas fa-bookmark"></i> Saved Recipes
+                </h2>
+                <div class="recipe-grid" id="savedRecipesGrid">
+                    <div class="empty-state">
+                        <i class="fas fa-bookmark" style="font-size: 4rem; color: var(--text-light); margin-bottom: 20px;"></i>
+                        <p style="color: var(--text-secondary); font-size: 1.1rem;">No saved recipes yet. Start exploring and save your favorites!</p>
+                        <a href="index.html" class="action-btn btn-primary" style="margin-top: 20px; display: inline-flex;">
+                            <i class="fas fa-search"></i> Explore Recipes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meal Log Section -->
+            <div class="dashboard-section-content">
+                <h2 class="section-title">
+                    <i class="fas fa-calendar-day"></i> Today's Meals
+                </h2>
+                <div class="meal-log" id="mealLog">
+                    <div class="empty-state">
+                        <i class="fas fa-utensils" style="font-size: 4rem; color: var(--text-light); margin-bottom: 20px;"></i>
+                        <p style="color: var(--text-secondary); font-size: 1.1rem;">No meals logged today. Start tracking your nutrition!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍽️ Smart Food Analyzer | Personalized Recipe Recommendations</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-utensils"></i>
+                <span>Smart Food Analyzer</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="#" id="savedRecipesBtn"><i class="fas fa-bookmark"></i> Saved Recipes</a>
+                <span id="authLinks">
+                    <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="signup.html" class="nav-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </span>
+                <span id="userMenu" style="display: none;">
+                    <span class="nav-username" id="navUsername"></span>
+                    <a href="#" onclick="logout(); return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Smart Food Analyzer</span>
+                    <br>+ Personalized Recipes
+                </h1>
+                <p class="hero-subtitle">Discover nutrition facts, health scores, and get personalized recipe recommendations based on your diet goals</p>
+                
+                <!-- Diet Goal Selector -->
+                <div class="diet-selector">
+                    <label>Select Your Diet Goal:</label>
+                    <div class="diet-buttons">
+                        <button class="diet-btn" data-diet="weight_loss">
+                            <i class="fas fa-weight"></i> Weight Loss
+                        </button>
+                        <button class="diet-btn" data-diet="weight_gain">
+                            <i class="fas fa-arrow-up"></i> Weight Gain
+                        </button>
+                        <button class="diet-btn" data-diet="high_protein">
+                            <i class="fas fa-dumbbell"></i> High Protein
+                        </button>
+                        <button class="diet-btn" data-diet="low_carb">
+                            <i class="fas fa-leaf"></i> Low Carb
+                        </button>
+                        <button class="diet-btn" data-diet="diabetic_friendly">
+                            <i class="fas fa-heartbeat"></i> Diabetic Friendly
+                        </button>
+                        <button class="diet-btn active" data-diet="balanced">
+                            <i class="fas fa-balance-scale"></i> Balanced
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search Section -->
+                <div class="search-section">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="foodSearch" placeholder="Search for food or ingredient (e.g., Chicken, Paneer, Rice...)">
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Results Section -->
+    <section class="results-section" id="foodResults" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Nutrition Information</h2>
+            <div class="food-cards" id="foodCards"></div>
+        </div>
+    </section>
+
+    <!-- Recipe Recommendations Section -->
+    <section class="recipes-section" id="recipeSection" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-magic"></i> Recommended Recipes
+            </h2>
+            <div class="recipe-grid" id="recipeGrid"></div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <p>Analyzing food...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
